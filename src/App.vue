@@ -1,22 +1,18 @@
 <template>
+<body>
   <div id="app">
-    <div class="page">
       <div class="top">
         <h1 class="title">Welcome to Opportunity</h1>
-        <h2 class="date">{{ currentDateTime() }}</h2>
+        <h2 class="date">{{currentDateTime()}}</h2>
       </div>
-
-      <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-
       <ul class="main">
         <li class="bloque">
-          <h3 class="date-box">14.00 Uhr</h3>
+          <span class="date-box">14.00 Uhr</span>
           <h3 class="tittle-box">Basisbeschäftigung Besuch</h3>
-          <h3 class="description-box">
+          <span class="description-box">
             Interessierte für zweiten Kurs werden uns besuchen
-          </h3>
+          </span>
         </li>
-
         <li class="bloque">
           <h3 class="date-box">14.00 Uhr</h3>
           <h3 class="tittle-box">Basisbeschäftigung Besuch</h3>
@@ -24,7 +20,6 @@
             Interessierte für zweiten Kurs werden uns besuchen
           </h3>
         </li>
-
         <li class="bloque">
           <h3 class="date-box">14.00 Uhr</h3>
           <h3 class="tittle-box">Basisbeschäftigung Besuch</h3>
@@ -33,18 +28,18 @@
           </h3>
         </li>
       </ul>
-    </div>
-
     <footer>
       <img class="img-footer" alt="stadt zürich logo" src="./assets/STZH_SEB_Logo.png"/>
       <img class="img-footer" alt="Opportunity logo"  src="./assets/Opportunity.png"/>
       <img class="img-footer" alt="Sag logo" src="./assets/SAG_Logo_De.png" />
     </footer>
   </div>
+  </body>
 </template>
 
 <script>
-//Here could go import, to acces to different components.
+
+//Here also could go import, to acces to different components.
 
 export default {
   name: "App",
@@ -56,21 +51,20 @@ export default {
       const dia = current.getDate();
       const mes = current.getMonth();
       const year = current.getFullYear();
-
       const dateTime = dia + "." + mes + "." + year;
-
       if (mes < 10) {
         return dia + "." + "0" + mes + "." + year;
       }
       return dateTime;
-    },
-  },
-};
+        },
+      },
+    };
 </script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap");
 
+/* LAYOUT */
 #app {
   background-color: #e6eff4;
   font-family: "Inter", sans-serif;
@@ -78,26 +72,32 @@ export default {
   color: #2c3e50;
   margin: 0;
   padding: 0;
+   
 }
-.page {
-  height: 95vh;
+/* DIV FOR HEADER */
+.top {
+  text-align: left;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  padding-top: 2rem;
 }
 .title {
   font-size: 62px;
-  font-weight: bold;
+  font-weight: 900;
 }
 .date {
   color: #9aa7b1;
   font-size: 62px;
-  font-weight: bold;
+  font-weight: 500;
 }
 
+/* MAIN CONTENT */
 .main {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  height: 80vh;
 }
-
 .bloque {
   background-color: #0f05a0;
   display: flex;
@@ -106,38 +106,39 @@ export default {
   padding: 3rem;
   margin: 3rem;
 }
-
-footer {
-  
-  bottom: 0;  
-  background-color:white;
-  display: flex;
-  justify-content: space-around;
-  /* display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
-}
-.img-footer {
-  padding: 1rem;
-  width: auto;
-  height: 3vh;
-  object-fit: contain;
-}
-
+/* TEXT OF BOXES */
 .date-box {
   color: #eb5e00;
-  font-weight: bold;
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 36px;
 }
 .tittle-box {
   color: #ffbaab;
-  font-weight: bold;
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 36px;
 }
 .description-box {
   color: #ffbaab;
 }
-.top {
-  text-align: left;
-  margin-left: 3rem;
-  margin-right: 3rem;
-  padding-top: 2rem;
+/* FOOTER */
+footer {
+  position: fixed;
+  bottom: 0;  
+  width: 100vw;
+  background-color:white;
+  display: flex;
+  justify-content: space-around;
+  /* display: grid;  height: 95vh;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
 }
+.img-footer {
+  padding: 2rem;
+  width: auto;
+  height: 3vh;
+  object-fit: contain;
+  align-items: center;
+}
+
 </style>
