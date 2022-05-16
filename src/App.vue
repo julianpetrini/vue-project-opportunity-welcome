@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-    
+    <HelloWorld msg="THIS WAS CHANGED.js App" />
+
   </div>
 </template>
 
@@ -13,8 +13,7 @@ export default {
   name: "App",
   components: {
     HelloWorld,
-    footer,
-    
+        
   },
 };
 </script>
