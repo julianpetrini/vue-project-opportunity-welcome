@@ -8,24 +8,20 @@
       <ul class="main">
         <li class="bloque">
           <span class="date-box">14.00 Uhr</span>
-          <h3 class="tittle-box">Basisbeschäftigung Besuch</h3>
+          <span class="tittle-box">Basisbeschäftigung Besuch</span>
           <span class="description-box">
             Interessierte für zweiten Kurs werden uns besuchen
           </span>
         </li>
         <li class="bloque">
-          <h3 class="date-box">14.00 Uhr</h3>
-          <h3 class="tittle-box">Basisbeschäftigung Besuch</h3>
-          <h3 class="description-box">
-            Interessierte für zweiten Kurs werden uns besuchen
-          </h3>
+          <span class="date-box">14.00 Uhr</span>
+          <span class="tittle-box">Basisbeschäftigung Besuch</span>
+          <span class="description-box">Interessierte für zweiten Kurs werden uns besuchen</span>
         </li>
         <li class="bloque">
-          <h3 class="date-box">14.00 Uhr</h3>
-          <h3 class="tittle-box">Basisbeschäftigung Besuch</h3>
-          <h3 class="description-box">
-            Interessierte für zweiten Kurs werden uns besuchen
-          </h3>
+          <span class="date-box">14.00 Uhr</span>
+          <span class="tittle-box">Basisbeschäftigung Besuch</span>
+          <span class="description-box">Interessierte für zweiten Kurs werden uns besuchen</span>
         </li>
       </ul>
     <footer>
@@ -103,9 +99,10 @@ export default {
   display: flex;
   text-align: left;
   flex-direction: column;
-  padding: 3rem;
+  padding: 2rem;
   margin: 3rem;
 }
+
 /* TEXT OF BOXES */
 .date-box {
   color: #eb5e00;
@@ -121,7 +118,9 @@ export default {
 }
 .description-box {
   color: #ffbaab;
+  
 }
+
 /* FOOTER */
 footer {
   position: fixed;
