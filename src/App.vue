@@ -40,6 +40,7 @@
 </template>
 
 <script>
+
 //Here also could go import, to acces to different components.
 
 export default {
