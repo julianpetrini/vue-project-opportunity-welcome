@@ -57,7 +57,7 @@ export default {
     currentDateTime() {
       const current = new Date();
       const dia = current.getDate();
-      const mes = current.getMonth();
+      const mes = (current.getMonth()+1);
       const year = current.getFullYear();
       const dateTime = dia + "." + mes + "." + year;
       if (mes < 10) {
@@ -70,12 +70,13 @@ export default {
 </script>
 
 <style>
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap");
 
 /* LAYOUT */
 #app {
   background-color: #e6eff4;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif, arial;
   text-align: center;
   color: #2c3e50;
   margin: 0;
