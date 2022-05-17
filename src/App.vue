@@ -2,25 +2,25 @@
   <body>
     <div id="app">
       <div class="top">
-        <h1 class="title">Welcome to Opportunity</h1>
+        <h1 class="title">{{ title }}</h1>
         <h2 class="date">{{ currentDateTime() }}</h2>
       </div>
       <ul class="main">
-        <li class="bloque">
+        <li class="bloque" v-for="entry in entries" :key="entry.id">
+          <span class="date-box">{{ entry[0] }}, {{ entry[1] }}</span>
+          <span class="tittle-box">{{ entry[2] }}</span>
+          <span class="description-box">{{ entry[3] }}</span>
+        </li>
+        <!-- <li class="bloque">
           <span class="date-box">{{ time }}</span>
-          <span class="tittle-box">{{ title }}</span>
+          <span class="tittle-box">{{ titleBox }}</span>
           <span class="description-box">{{ description }}</span>
         </li>
         <li class="bloque">
           <span class="date-box">{{ time }}</span>
-          <span class="tittle-box">{{ title }}</span>
+          <span class="tittle-box">{{ titleBox }}</span>
           <span class="description-box">{{ description }}</span>
-        </li>
-        <li class="bloque">
-          <span class="date-box">{{ time }}</span>
-          <span class="tittle-box">{{ title }}</span>
-          <span class="description-box">{{ description }}</span>
-        </li>
+        </li> -->
       </ul>
       <footer>
         <img
@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import axios from "axios"; // Is a library for making HTTP request to the backend.
 
 //Here also could go import, to acces to different components.
 
@@ -47,17 +48,29 @@ export default {
   name: "App",
   data() {
     return {
+      title: "Welcome to Opportunity",
+      sheet_id: "1a81aI0Y8ViZO0tI92h2YSMqVQJ8hmNNMyMylXgvwiU4",
+      api_token: "AIzaSyA-qeDXOhEeQDA0vQf7LgkF7DQtGnAtmAU",
+      entries: [],
+
       time: "14:00 Uhr",
-      title: "Basisbeschäftigung Besuch",
+      titleBox: "Basisbeschäftigung Besuch",
       description: "Interessierte für zweiten Kurs werden uns besuchen",
+      // currentDate:"" why also goes here ?
     };
+  },
+
+  computed: {
+    gsheet_url() {
+      return `https://sheets.googleapis.com/v4/spreadsheets/${this.sheet_id}/values:batchGet?ranges=A2%3AE100&valueRenderOption=FORMATTED_VALUE&key=${this.api_token}`; //HERE I CHANGED THE STARTING LINE IN ORDER TO NOT SEE THE TITLES IN THE INFO OF THE ARRAY
+    },
   },
 
   methods: {
     currentDateTime() {
       const current = new Date();
       const dia = current.getDate();
-      const mes = (current.getMonth()+1);
+      const mes = current.getMonth() + 1;
       const year = current.getFullYear();
       const dateTime = dia + "." + mes + "." + year;
       if (mes < 10) {
@@ -65,12 +78,19 @@ export default {
       }
       return dateTime;
     },
+    getData() {
+      axios.get(this.gsheet_url).then((response) => {
+        this.entries = response.data.valueRanges[0].values;
+      });
+    },
+  },
+  mounted() {
+    this.getData();
   },
 };
 </script>
 
 <style>
-
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap");
 
 /* LAYOUT */
