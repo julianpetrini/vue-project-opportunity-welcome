@@ -5,27 +5,21 @@
         <h1 class="title">{{ title }}</h1>
         <h2 class="date">{{ currentDateTime() }}</h2>
       </div>
-    
+
       <ul v-if="entries" class="main">
         <li class="bloque" v-for="entry in entries" :key="entry.id">
-          <span class="date-box">{{ entry[0] }}, {{ entry[1].replaceAll("/", ".") }}</span
+          <span class="date-box"
+            >{{ entry[0] }} - {{ entry[1].replaceAll("/", ".") }}</span
           >
           <span class="tittle-box">{{ entry[2] }}</span>
           <span class="description-box">{{ entry[3] }}</span>
         </li>
-        <!-- <li class="bloque">
-          <span class="date-box">{{ time }}</span>
-          <span class="tittle-box">{{ titleBox }}</span>
-          <span class="description-box">{{ description }}</span>
-        </li>
-        <li class="bloque">
-          <span class="date-box">{{ time }}</span>
-          <span class="tittle-box">{{ titleBox }}</span>
-          <span class="description-box">{{ description }}</span>
-        </li> -->
       </ul>
 
-       <p v-else class="title">it will come !</p> 
+      <div v-else class="notWorking">
+        <p class="title" >{{ notWorking }}</p>
+        <img  class="imgNotWorking" src="./assets/notWorking.png" />
+      </div>
 
       <footer>
         <img
@@ -57,11 +51,7 @@ export default {
       sheet_id: "1a81aI0Y8ViZO0tI92h2YSMqVQJ8hmNNMyMylXgvwiU4",
       api_token: "AIzaSyA-qeDXOhEeQDA0vQf7LgkF7DQtGnAtmAU",
       entries: [],
-
-      time: "14:00 Uhr",
-      titleBox: "Basisbeschäftigung Besuch",
-      description: "Interessierte für zweiten Kurs werden uns besuchen",
-      // currentDate:"" why also goes here ?
+      notWorking: "Please come back later"
     };
   },
 
@@ -146,6 +136,11 @@ export default {
   padding: 2rem;
   margin: 3rem;
 }
+.imgNotWorking{
+  padding: 1rem;
+  width: auto;
+  height: 25vh;
+  }
 
 /* TEXT OF BOXES */
 .date-box {
