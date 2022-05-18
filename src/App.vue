@@ -92,9 +92,7 @@ export default {
 
   mounted() {
     this.refreshData();
-    setInterval(()=>{
-      this.refreshData();
-    },1800000); //this will make refresh it every half an hour
+    setInterval (this.refreshData, 1000 * 60 * 30);
   },
 };
 </script>
