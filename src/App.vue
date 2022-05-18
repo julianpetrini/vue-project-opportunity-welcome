@@ -66,6 +66,11 @@ export default {
     //   this.entry[1] = this.entry[1].replace("/", ".");
     // },
 
+    refreshData() {
+      this.currentDateTime();
+      this.getData()
+    },
+
     currentDateTime() {
       const current = new Date();
       const dia = current.getDate();
@@ -82,11 +87,14 @@ export default {
         this.entries = response.data.valueRanges[0].values;
       });
     },
+
   },
 
   mounted() {
-    this.getData();
-    // this.replaceFormat();
+    this.refreshData();
+    setInterval(()=>{
+      this.refreshData();
+    },1800000); //this will make refresh it every half an hour
   },
 };
 </script>
