@@ -7,7 +7,7 @@
       </div>
       <ul class="main">
         <li class="bloque" v-for="entry in entries" :key="entry.id">
-          <span class="date-box">{{ entry[0] }}, {{ entry[1] }}</span>
+          <span class="date-box">{{ entry[0] }}, {{ entry[1].replaceAll("/", ".") }}</span>
           <span class="tittle-box">{{ entry[2] }}</span>
           <span class="description-box">{{ entry[3] }}</span>
         </li>
@@ -53,6 +53,7 @@ export default {
       api_token: "AIzaSyA-qeDXOhEeQDA0vQf7LgkF7DQtGnAtmAU",
       entries: [],
 
+
       time: "14:00 Uhr",
       titleBox: "Basisbeschäftigung Besuch",
       description: "Interessierte für zweiten Kurs werden uns besuchen",
@@ -67,6 +68,10 @@ export default {
   },
 
   methods: {
+    // replaceFormat(){                       ----Here first i thought of creating a function that takes the array[1] and change it with replace and after call the function.
+    //   this.entry[1] = this.entry[1].replace("/", ".");
+    // },
+
     currentDateTime() {
       const current = new Date();
       const dia = current.getDate();
@@ -86,6 +91,7 @@ export default {
   },
   mounted() {
     this.getData();
+    // this.replaceFormat();
   },
 };
 </script>
