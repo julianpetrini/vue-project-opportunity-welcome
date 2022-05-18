@@ -5,9 +5,11 @@
         <h1 class="title">{{ title }}</h1>
         <h2 class="date">{{ currentDateTime() }}</h2>
       </div>
-      <ul class="main">
+    
+      <ul v-if="entries" class="main">
         <li class="bloque" v-for="entry in entries" :key="entry.id">
-          <span class="date-box">{{ entry[0] }}, {{ entry[1].replaceAll("/", ".") }}</span>
+          <span class="date-box">{{ entry[0] }}, {{ entry[1].replaceAll("/", ".") }}</span
+          >
           <span class="tittle-box">{{ entry[2] }}</span>
           <span class="description-box">{{ entry[3] }}</span>
         </li>
@@ -22,6 +24,9 @@
           <span class="description-box">{{ description }}</span>
         </li> -->
       </ul>
+
+       <p v-else class="title">it will come !</p> 
+
       <footer>
         <img
           class="img-footer"
@@ -53,7 +58,6 @@ export default {
       api_token: "AIzaSyA-qeDXOhEeQDA0vQf7LgkF7DQtGnAtmAU",
       entries: [],
 
-
       time: "14:00 Uhr",
       titleBox: "Basisbeschäftigung Besuch",
       description: "Interessierte für zweiten Kurs werden uns besuchen",
@@ -68,7 +72,7 @@ export default {
   },
 
   methods: {
-    // replaceFormat(){                       ----Here first i thought of creating a function that takes the array[1] and change it with replace and after call the function.
+    // replaceFormat(){ ----Here first i thought of creating a function that takes the array[1] and change it with replace and after call the function.
     //   this.entry[1] = this.entry[1].replace("/", ".");
     // },
 
@@ -89,6 +93,7 @@ export default {
       });
     },
   },
+
   mounted() {
     this.getData();
     // this.replaceFormat();
