@@ -1,6 +1,8 @@
 # vue-project-opportunity
 
-https://raw.githubusercontent.com/julianpetrini/vue-project-opportunity-welcome/main/src/assets/Opportunity_welcome_github_img.png
+![Image text](https://raw.githubusercontent.com/julianpetrini/vue-project-opportunity-welcome/main/src/assets/Opportunity_welcome_github_img.png)
+
+
 
 
 # About
