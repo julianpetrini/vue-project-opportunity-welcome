@@ -169,8 +169,6 @@ footer {
   background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: space-around;
-  /* display: grid;  height: 95vh;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
 }
 .img-footer {
   padding: 2rem;
