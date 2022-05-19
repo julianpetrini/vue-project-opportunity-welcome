@@ -39,9 +39,7 @@
 </template>
 
 <script>
-import axios from "axios"; // Is a library for making HTTP request to the backend.
-
-//Here also could go import, to acces to different components.
+import axios from "axios";
 
 export default {
   name: "App",
@@ -62,32 +60,29 @@ export default {
   },
 
   methods: {
-    // replaceFormat(){ ----Here first i thought of creating a function that takes the array[1] and change it with replace and after call the function.
-    //   this.entry[1] = this.entry[1].replace("/", ".");
-    // },
-
-    refreshData() {
-      this.currentDateTime();
-      this.getData()
-    },
-
+   
     currentDateTime() {
-      const current = new Date();
-      const dia = current.getDate();
-      const mes = current.getMonth() + 1;
-      const year = current.getFullYear();
-      const dateTime = dia + "." + mes + "." + year;
-      if (mes < 10) {
-        return dia + "." + "0" + mes + "." + year;
-      }
-      return dateTime;
-    },
+          const current = new Date();
+          const dia = current.getDate();
+          const mes = current.getMonth() + 1;
+          const year = current.getFullYear();
+          const dateTime = dia + "." + mes + "." + year;
+          if (mes < 10) {
+            return dia + "." + "0" + mes + "." + year;
+          }
+          return dateTime;
+        },
+
     getData() {
       axios.get(this.gsheet_url).then((response) => {
         this.entries = response.data.valueRanges[0].values;
       });
     },
 
+    refreshData() {
+      this.currentDateTime();
+      this.getData()
+    },
   },
 
   mounted() {
