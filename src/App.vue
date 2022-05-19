@@ -179,7 +179,6 @@ footer {
 }
 
 /* RESPONSIVE */
-
 @media screen and (max-width: 600px) {
   body {
     background-color: #e6eff4;
