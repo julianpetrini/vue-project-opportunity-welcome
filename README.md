@@ -1,5 +1,10 @@
 # vue-project-opportunity
 
+# About
+
+This app was created as a welcome screen where it shows the plan for the day and for days to come. I've used it to implement a simple vue.js page with data accessing from a google sheet api with axios. It was built to run on a 1080 x 1920 screen.
+```
+
 ## Project setup
 ```
 npm install
